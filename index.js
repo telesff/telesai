@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 // ❗ IMPORTANT
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 process.on("uncaughtException", console.error);
 process.on("unhandledRejection", console.error);
