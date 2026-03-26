@@ -1,0 +1,17 @@
+{
+  "name": "teles-ads-bot",
+  "version": "1.0.0",
+  "description": "TELES ADS - Telegram Mini App for trading channel advertising",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "setup-db": "node setup-db.js",
+    "setup-webhook": "node setup-webhook.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "pg": "^8.16.0",
+    "drizzle-orm": "^0.44.2"
+  }
+}
