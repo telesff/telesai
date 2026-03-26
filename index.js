@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 // ❗ IMPORTANT
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 process.on("uncaughtException", console.error);
 process.on("unhandledRejection", console.error);
@@ -32,6 +32,8 @@ app.post("/api/telegram/webhook", async (req, res) => {
 });
 
 // 🚀 start
+const PORT = process.env.PORT;
+
 app.listen(PORT, "0.0.0.0", () => {
   console.log("RUNNING ON", PORT);
 });
