@@ -1,10 +1,8 @@
 const path = require("path");
 const express = require("express");
 
-process.env.PORT = process.env.PORT || "3000";
-
 const app = express();
-const PORT = parseInt(process.env.PORT);
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,7 +45,7 @@ try {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: chatId,
-            text: "🚀 <b>Welcome to TELES ADS</b>\n\nThe growth engine for Forex, Crypto, and Binary trading communities.\n\nChoose an option below to continue.",
+            text: "🚀 <b>Welcome to TELES ADS</b>\n\nChoose an option below.",
             parse_mode: "HTML",
             reply_markup: {
               inline_keyboard: [
@@ -64,15 +62,8 @@ try {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: chatId,
-            text: "🔐 <b>TELES ADS — Admin Panel</b>\n\nTap any button to manage your platform.",
+            text: "🔐 Admin Panel",
             parse_mode: "HTML",
-            reply_markup: {
-              inline_keyboard: [
-                [{ text: "📊 Dashboard", web_app: { url: `${MINI_APP_URL}/admin` } }],
-                [{ text: "📦 Packages", web_app: { url: `${MINI_APP_URL}/admin?tab=packages` } }, { text: "📢 Campaigns", web_app: { url: `${MINI_APP_URL}/admin?tab=campaigns` } }],
-                [{ text: "💰 Payments", web_app: { url: `${MINI_APP_URL}/admin?tab=payments` } }, { text: "📡 Channels", web_app: { url: `${MINI_APP_URL}/admin?tab=channels` } }],
-              ],
-            },
           }),
         });
       }
@@ -92,7 +83,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`\n  ✅ TELES ADS is running!`);
-  console.log(`  🌐 URL: http://localhost:${PORT}`);
-  console.log(`  📡 Webhook: http://localhost:${PORT}/api/telegram/webhook\n`);
+  console.log(`✅ Running on port ${PORT}`);
 });
